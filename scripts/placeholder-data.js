@@ -158,16 +158,16 @@ If you're passionate about AI and want to contribute to cutting-edge technology 
 `,
   },
   {
-    title: "Intern at Coding in Flow",
+    title: "Intern at CodePeers",
     type: "Internship",
-    companyName: "Coding in Flow",
+    companyName: "CodePeers",
     locationType: "Remote",
-    applicationUrl: "https://codinginflow.com",
-    slug: "intern-at-coding-in-flow-4",
-    salary: 500,
+    applicationUrl: "https://codepeers-somnath-sanus-projects.vercel.app/",
+    slug: "intern-at-codepeers-4",
+    salary: 5000,
     approved: true,
     description: `
-**Help build the best coding tutorials**
+**Help build the best features**
 
 I might not be able to pay you a lot, but I can offer you a lot of experience and a lot of fun. I'm looking for someone who is passionate about coding and wants to help me create the best coding tutorials on YouTube.
 `,
