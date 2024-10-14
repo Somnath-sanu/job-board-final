@@ -18,6 +18,7 @@ import { jobFilterSchema, JobFilterValues } from "@/lib/validation";
 import { jobTypes } from "@/lib/job-types";
 
 import LoadingButton from "./LoadingButton";
+import { getAllLocations } from "@/lib/Locations";
 
 interface JobFilterSidebarProps {
   defaultValues: JobFilterValues;
@@ -30,7 +31,7 @@ export default function JobFilterSidebar({
   const [job, setJob] = useState("");
   const [location, setLocation] = useState("");
   const [isRemote, setIsRemote] = useState(false);
-  const [locations, setLocations] = useState([]);
+  const [locations, setLocations] = useState<string[]>([]);
 
   const [isPending, startTransition] = useTransition();
 
@@ -79,10 +80,11 @@ export default function JobFilterSidebar({
 
   useEffect(() => {
     async function fetchLocations() {
-      const res = await fetch("/api/locations");
-      const data = await res.json();
-
-      setLocations(data.locations);
+      ;
+      const data = await getAllLocations();
+      // console.log({data});
+      
+      setLocations(data);
     }
     fetchLocations();
   }, []);
@@ -114,10 +116,10 @@ export default function JobFilterSidebar({
     <>
       <Button
         variant="outline"
-        className="fixed bottom-4 right-4 z-50 md:hidden"
+        className="fixed bottom-3 shadow-lg left-5 z-50 md:hidden"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <Filter className="mr-2 h-4 w-4" />
+        <Filter className="mr-2 h-3 w-3" />
         Filters
       </Button>
 
@@ -128,7 +130,7 @@ export default function JobFilterSidebar({
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-y-0 left-0 z-50 w-full overflow-y-auto bg-background p-6 shadow-lg md:sticky md:top-10   md:w-72 h-fit mx-auto rounded-xl "
+            className="fixed inset-y-0 left-0 z-50 mx-auto h-fit w-full overflow-y-auto rounded-xl bg-background p-6 shadow-lg md:sticky md:top-10 md:w-72"
           >
             <form
               onSubmit={(e) =>
@@ -185,7 +187,7 @@ export default function JobFilterSidebar({
 
               <div className="flex items-center space-x-2">
                 <Checkbox
-                  className="bg-slate-500 border-none outline-none cursor-pointer"
+                  className="cursor-pointer border-none bg-slate-500 outline-none"
                   id="remote"
                   checked={isRemote}
                   onCheckedChange={(checked) => setIsRemote(checked as boolean)}

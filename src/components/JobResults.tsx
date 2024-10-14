@@ -121,7 +121,7 @@ function Pagination({
   }
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between py-4">
       <Link
         href={generatePageLink(currentPage - 1)}
         className={cn(
