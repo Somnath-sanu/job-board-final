@@ -38,8 +38,8 @@ export default function JobListItem({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-        <div className="flex flex-col sm:flex-row p-6 gap-6">
+      <Card className="overflow-hidden transition-shadow duration-300 hover:shadow-lg">
+        <div className="flex flex-col gap-6 p-6 sm:flex-row">
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex-shrink-0 self-center sm:self-start"
@@ -57,18 +57,18 @@ export default function JobListItem({
               <h2 className="text-2xl font-semibold text-primary">{title}</h2>
               <p className="text-lg text-muted-foreground">{companyName}</p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            <div className="grid grid-cols-1 gap-3 text-sm sm:grid-cols-2">
               <InfoItem icon={Briefcase} text={type} />
               <InfoItem icon={MapPin} text={locationType} />
               <InfoItem icon={Globe2} text={location || "Worldwide"} />
               <InfoItem icon={Banknote} text={formatMoney(salary)} />
             </div>
           </div>
-          <div className="flex flex-col justify-between items-end mt-4 sm:mt-0">
-            <Badge variant="secondary" className="mb-2 text-nowrap shrink-0">
+          <div className="mt-4 flex flex-col items-end justify-between sm:mt-0">
+            <Badge variant="secondary" className="mb-2 shrink-0 text-nowrap">
               {type}
             </Badge>
-            <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+            <span className="flex items-center gap-1.5 text-nowrap text-sm text-muted-foreground">
               <Clock size={14} />
               {relativeDate(createdAt)}
             </span>

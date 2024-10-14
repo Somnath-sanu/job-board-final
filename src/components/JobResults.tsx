@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import prisma from "@/lib/prisma";
 import Link from "next/link";
 import JobListItem from "./JobListItem";
@@ -127,7 +126,7 @@ function Pagination({
         href={generatePageLink(currentPage - 1)}
         className={cn(
           "flex items-center gap-2 font-semibold",
-          currentPage <= 1 && "invisible"
+          currentPage <= 1 && "invisible",
         )}
       >
         <ArrowLeft size={16} />
@@ -140,7 +139,7 @@ function Pagination({
         href={generatePageLink(currentPage + 1)}
         className={cn(
           "flex items-center gap-2 font-semibold",
-          currentPage >= totalPages && "invisible"
+          currentPage >= totalPages && "invisible",
         )}
       >
         Next page

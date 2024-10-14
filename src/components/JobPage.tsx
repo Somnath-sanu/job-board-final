@@ -3,7 +3,7 @@ import { Job } from "@prisma/client";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-// import { Button } from "@/components/ui/button";
+
 import { Briefcase, MapPin, Globe2, Banknote } from "lucide-react";
 import Image from "next/image";
 import { formatMoney } from "@/lib/utils";
@@ -33,14 +33,14 @@ export default function JobPage({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="max-w-4xl mx-auto p-6"
+      className="mx-auto max-w-4xl p-6"
     >
       <Card className="overflow-hidden">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="flex items-center space-x-4 p-6 bg-secondary"
+          className="flex items-center space-x-4 bg-secondary p-6"
         >
           <Image
             src={companyLogoUrl || companyLogoPlaceholder}
@@ -55,7 +55,7 @@ export default function JobPage({
           </div>
         </motion.div>
 
-        <div className="p-6 space-y-6">
+        <div className="space-y-6 p-6">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -86,10 +86,10 @@ export default function JobPage({
             transition={{ delay: 0.6 }}
           >
             <div className="text-center">
-            <h2 className="text-2xl font-semibold mb-2">Details</h2>
-            <p className="text-muted-foreground whitespace-pre-wrap">
-              Read carefully before applying{" "}
-            </p>
+              <h2 className="mb-2 text-2xl font-semibold">Details</h2>
+              <p className="whitespace-pre-wrap text-muted-foreground">
+                Read carefully before applying{" "}
+              </p>
             </div>
           </motion.div>
           {description && <Markdown>{description}</Markdown>}

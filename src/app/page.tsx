@@ -17,10 +17,10 @@ function getTitle({ q, type, location, remote }: JobFilterValues) {
   const titlePrefix = q
     ? `${q} jobs`
     : type
-    ? `${type} developer jobs`
-    : remote
-    ? "Remote developer jobs"
-    : "All developer jobs";
+      ? `${type} developer jobs`
+      : remote
+        ? "Remote developer jobs"
+        : "All developer jobs";
 
   const titleSuffix = location ? ` in ${location}` : "";
 
@@ -41,7 +41,7 @@ export function generateMetadata({
 }
 
 export default function Home({
-  searchParams: { q, type, location, remote , page },
+  searchParams: { q, type, location, remote, page },
 }: PageProps) {
   const filterValues: JobFilterValues = {
     q,
@@ -58,6 +58,7 @@ export default function Home({
       </div>
       <section className="flex flex-col gap-4 md:flex-row">
         <JobFilterSidebar defaultValues={filterValues} />
+
         <JobResults
           filterValues={filterValues}
           page={page ? parseInt(page) : undefined}
